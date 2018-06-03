@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div *ngIf="erro_carregar_turmas" class="alert alert-danger my-2">
+    <strong>Erro!</strong> Não foi possível acessar os dados de turmas da API
+  </div>
+  <div *ngIf="erro_exluir" class="alert alert-danger my-2">
+    <strong>Erro!</strong> Não foi possível excluir a turma. Tente novamente mais tarde!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="erro_exluir = false">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="!erro_carregar_turmas">
+    <app-exibir-turmas (onEditar)="editar($event)" (onExcluir)="excluir($event)"
+                         [turmas]="turmas" [turma_editando]="turma_editando"></app-exibir-turmas>
+  </div>
+  <div *ngIf="inserir_erro" class="alert alert-danger my-2">
+    <strong>Erro!</strong> Não foi possível cadastrar a turma. Tente novamente mais tarde!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="inserir_erro = false">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="inserir_sucesso" class="alert alert-success my-2">
+    <strong>Sucesso!</strong> Turma cadastrada ou editada.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="inserir_sucesso = false">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="!erro_carregar_turmas">
+    <app-editor-de-turma [turma]="turma_editando" (onSalvar)="salvar($event)" (onCancelar)="redefinir()"></app-editor-de-turma>
+  </div>
+
+</div>
+

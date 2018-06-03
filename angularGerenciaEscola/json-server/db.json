@@ -1,0 +1,72 @@
+{
+  "turmas": [
+    {
+      "disciplinaId": "2",
+      "professorId": "1",
+      "ano": 2018,
+      "id": 3,
+      "alunos": []
+    },
+    {
+      "disciplinaId": "1",
+      "professorId": "1",
+      "ano": 2018,
+      "id": 4,
+      "alunos": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "disciplinaId": "1",
+      "professorId": "1",
+      "ano": 2018,
+      "id": 5,
+      "alunos": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "disciplinaId": "1",
+      "professorId": "1",
+      "ano": 2018,
+      "alunos": [
+        "1"
+      ],
+      "id": 6
+    }
+  ],
+  "disciplinas": [
+    {
+      "id": 1,
+      "nome": "LPWEB"
+    },
+    {
+      "id": 2,
+      "nome": "AP2"
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Carlos"
+    },
+    {
+      "id": 2,
+      "nome": "Fred"
+    },
+    {
+      "id": 3,
+      "nome": "Neymar"
+    }
+  ],
+  "professors": [
+    {
+      "id": 1,
+      "nome": "Jackson"
+    }
+  ]
+}

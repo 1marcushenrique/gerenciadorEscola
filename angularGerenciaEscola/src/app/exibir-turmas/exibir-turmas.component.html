@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <h2>Turmas</h2>
+  <hr>
+  <table class="table table-hover table-sm">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col" class="pl-2">ID</th>
+      <th>Disciplina</th>
+      <th>Professor</th>
+      <th>Qtd. Alunos</th>
+      <th scope="col" width="200">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let turma of turmas" [class.table-active]="turma_editando && turma_editando.id == turma.id" class="pl-2">
+      <td>
+        <i *ngIf="turma_editando && (turma_editando.id === turma.id)" class="fa fa-pencil-square"></i> {{turma.id}}
+      </td>
+      <td>{{turma.disciplina.nome}}</td>
+      <td>{{turma.professor.nome}}</td>
+      <td>{{turma.alunos.length}}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="excluir(turma)" id="excluir">
+          <i class="fa fa-trash"></i> Excluir
+        </button>
+        <button class="btn btn-sm btn-primary" (click)="editar(turma)" id="editar">
+          <i class="fa fa-pencil-square"></i> Editar
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

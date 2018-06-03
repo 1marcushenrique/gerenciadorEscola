@@ -1,0 +1,51 @@
+<h2>Cadastrar ou editar</h2>
+<p>Use este formulário para cadastrar ou editar uma turma.</p>
+<form #cadastro="ngForm" (submit)="salvar()">
+  <div class="form-group">
+    <label for="aluno">Alunos</label>
+    <select class="form-control" id="aluno" name="aluno" [(ngModel)]="aluno">
+      <option [value]="null">Selecione um aluno</option>
+      <option *ngFor="let a of alunos" [value]="a.id">{{a.nome}}</option>
+    </select>
+    <button type="button" class="btn btn-success btn-sm mt-3" (click)="adicionarAluno()" [disabled]="aluno == null || aluno == 'null'">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i> Adicionar aluno
+    </button>
+  </div>
+  <div class="form-group">
+    <label for="alunos_s">Alunos selecionados</label>
+    <select multiple id="alunos_s" name="alunos_s" [(ngModel)]="alunos_remover" class="form-control">
+      <option *ngFor="let at of turma.alunos" value="{{at}}">{{encontrarAluno(at).nome}}</option>
+    </select>
+  </div>
+  <button type="button" class="btn btn-danger btn-sm" (click)="removereAlunos()" [disabled]="alunos_remover.length == 0">
+    <i class="fa fa-minus-circle" aria-hidden="true"></i> Remover alunos
+  </button>
+
+  <div class="form-group mt-2">
+    <label for="ano">Ano</label>
+    <input type="number" class="form-control" id="ano" name="ano" [(ngModel)]="turma.ano" required>
+  </div>
+  <div class="form-group">
+    <label for="disciplinas">Disciplinas</label>
+    <select class="form-control" id="disciplinas" name="disciplina" [(ngModel)]="turma.disciplinaId" required>
+      <option [value]="null">Selecione uma disciplina</option>
+      <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{disciplina.nome}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="professores">Professores</label>
+    <select class="form-control" id="professores" name="professor" [(ngModel)]="turma.professorId" required>
+      <option [value]="null">Selecione um professor</option>
+      <option *ngFor="let professor of professores" [value]="professor.id">{{professor.nome}}</option>
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-success my-4 mx-2 float-right" [disabled]="!cadastro.valid">
+    <i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar
+  </button>
+  <button type="reset" class="btn btn-danger my-4 float-right" (click)="cancelar()">
+    Cancelar
+  </button>
+
+</form>
